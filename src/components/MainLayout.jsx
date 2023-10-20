@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className='flex'>
       <SideBar />
-      <div className='bg-pink-200 grow'>
+      <div className='grow'>
         <Outlet />
       </div>
     </div>
