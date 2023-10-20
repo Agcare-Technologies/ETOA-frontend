@@ -8,10 +8,7 @@ import { GiProgression } from "react-icons/gi";
 
 const SideBar = () => {
   return (
-    <div className='w-52 bg-gray-400 h-screen  p-2'>
-      <div>
-        <img src='/assets/safex.png' className='h-20 mx-auto' alt='' />
-      </div>
+    <div className='w-48 bg-gray-100 h-screen'>
       <div className='space-y-2'>
         <NavLink to='/home' label='Home' icon={<AiOutlineHome />} />
         <NavLink to='/dashboard' label='Dashboard' icon={<RxDashboard />} />

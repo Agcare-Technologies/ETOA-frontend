@@ -10,12 +10,12 @@ const NavLink = ({ to, label, icon }) => {
 
   const linkStyle = {
     color: isActive(to) ? "white" : "black",
-    backgroundColor: isActive(to) ? "bg-green-300" : "transparent",
+    backgroundColor: isActive(to) ? "bg-green-500" : "transparent",
   };
 
   return (
     <div
-      className={`flex items-center rounded-md px-4 py-2 space-x-2 w-48 ${linkStyle.backgroundColor}`}
+      className={`flex items-center rounded-sm px-4 py-2 space-x-2 w-48 ${linkStyle.backgroundColor}`}
     >
       <span className={isActive(to) ? "text-white" : "text-black"}>{icon}</span>
       <Link
