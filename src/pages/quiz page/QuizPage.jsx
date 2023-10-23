@@ -1,80 +1,32 @@
 import React, { useState } from "react";
-import { questions } from "../../mock data/quizQuestions";
+import QuizList from "../../components/QuizList";
+import QuizFormat from "../../components/QuizFormat";
+import { quizzes } from "../../mock data/quizQuestions";
 
-function QuizPage() {
-  // Properties
-  const [showResults, setShowResults] = useState(false);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+const QuizPage = () => {
+  const [selectedQuiz, setSelectedQuiz] = useState(null);
 
-  // Helper Functions
-
-  /* A possible answer was clicked */
-  const optionClicked = (isCorrect) => {
-    // Increment the score
-    if (isCorrect) {
-      setScore(score + 1);
-    }
-
-    if (currentQuestion + 1 < questions.length) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setShowResults(true);
-    }
+  // Function to handle QuizCard click and set the selected quiz
+  const handleQuizCardClick = (quizData) => {
+    setSelectedQuiz(quizData);
   };
 
-  /* Resets the game back to default */
-  const restartGame = () => {
-    setScore(0);
-    setCurrentQuestion(0);
-    setShowResults(false);
+  // Function to go back to QuizList
+  const handleGoBack = () => {
+    setSelectedQuiz(null); // Clear selectedQuiz to return to QuizList
   };
 
   return (
-    <div className='App'>
-      {/* 1. Header  */}
-      <h1>USA Quiz 🇺🇸</h1>
-
-      {/* 2. Current Score  */}
-      <h2>Score: {score}</h2>
-
-      {/* 3. Show results or show the question game  */}
-      {showResults ? (
-        /* 4. Final Results */
-        <div className='final-results'>
-          <h1>Final Results</h1>
-          <h2>
-            {score} out of {questions.length} correct - (
-            {(score / questions.length) * 100}%)
-          </h2>
-          <button onClick={() => restartGame()}>Restart game</button>
-        </div>
+    <div>
+      {selectedQuiz ? (
+        // Render QuizFormat when a quiz is selected and pass the handleGoBack function
+        <QuizFormat quizData={selectedQuiz} onGoBack={handleGoBack} />
       ) : (
-        /* 5. Question Card  */
-        <div className='question-card'>
-          {/* Current Question  */}
-          <h2>
-            Question: {currentQuestion + 1} out of {questions.length}
-          </h2>
-          <h3 className='question-text'>{questions[currentQuestion].text}</h3>
-
-          {/* List of possible answers  */}
-          <ul>
-            {questions[currentQuestion].options.map((option) => {
-              return (
-                <li
-                  key={option.id}
-                  onClick={() => optionClicked(option.isCorrect)}
-                >
-                  {option.text}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        // Render QuizList when no quiz is selected and pass the quizzes and onQuizCardClick function
+        <QuizList quizzes={quizzes} onQuizCardClick={handleQuizCardClick} />
       )}
     </div>
   );
-}
+};
 
 export default QuizPage;
