@@ -18,13 +18,18 @@ const QuizPage = () => {
 
   return (
     <div>
-      {selectedQuiz ? (
-        // Render QuizFormat when a quiz is selected and pass the handleGoBack function
-        <QuizFormat quizData={selectedQuiz} onGoBack={handleGoBack} />
-      ) : (
-        // Render QuizList when no quiz is selected and pass the quizzes and onQuizCardClick function
-        <QuizList quizzes={quizzes} onQuizCardClick={handleQuizCardClick} />
-      )}
+      <h3 className='text-4xl text-center font-semibold py-2'>
+        Available Quiz
+      </h3>
+      <div>
+        {selectedQuiz ? (
+          // Render QuizFormat when a quiz is selected and pass the handleGoBack function
+          <QuizFormat quizData={selectedQuiz} onGoBack={handleGoBack} />
+        ) : (
+          // Render QuizList when no quiz is selected and pass the quizzes and onQuizCardClick function
+          <QuizList quizzes={quizzes} onQuizCardClick={handleQuizCardClick} />
+        )}
+      </div>
     </div>
   );
 };

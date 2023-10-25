@@ -30,9 +30,9 @@ const QuizFormat = ({ quizData, onGoBack }) => {
   };
 
   return (
-    <div className='App'>
+    <div className='bg-gray-200 shadow-2xl rounded-xl m-4 p-4 text-center'>
       {/* 1. Header */}
-      <h1>{quizData.title}</h1>
+      <h1 className='text-xl font-bold'>{quizData.title}</h1>
 
       {/* 2. Current Score */}
       <h2>Score: {score}</h2>
@@ -46,16 +46,16 @@ const QuizFormat = ({ quizData, onGoBack }) => {
             {score} out of {quizData.questions.length} correct - (
             {(score / quizData.questions.length) * 100}%)
           </h2>
-          <button onClick={() => restartGame()}>Restart game</button>
+          <button onClick={() => restartGame()}>Restart Quiz</button>
         </div>
       ) : (
         /* 5. Question Card */
-        <div className='question-card'>
+        <div className=''>
           {/* Current Question */}
           <h2>
             Question: {currentQuestion + 1} out of {quizData.questions.length}
           </h2>
-          <h3 className='question-text'>
+          <h3 className='text-md font-semibold'>
             {quizData.questions[currentQuestion].text}
           </h3>
 
@@ -64,6 +64,7 @@ const QuizFormat = ({ quizData, onGoBack }) => {
             {quizData.questions[currentQuestion].options.map((option) => {
               return (
                 <li
+                  className=' my-2 bg-white border rounded-md hover:bg-green-400 text-gray-800 text-sm font-semibold hover:scale-80 py-2 border-white space-y-2'
                   key={option.id}
                   onClick={() => optionClicked(option.isCorrect)}
                 >
@@ -75,7 +76,9 @@ const QuizFormat = ({ quizData, onGoBack }) => {
         </div>
       )}
       <div>
-        <button onClick={onGoBack}>GO BACK</button>
+        <button className='text-red-600' onClick={onGoBack}>
+          GO BACK
+        </button>
       </div>
     </div>
   );

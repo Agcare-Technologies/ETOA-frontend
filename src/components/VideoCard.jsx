@@ -26,7 +26,7 @@ const VideoCard = ({ src, videoId }) => {
   );
 
   return (
-    <div className='w-72 h-60 rounded-md bg-teal-50 shadow-xl flex flex-col m-4'>
+    <div className='w-72 h-60 rounded-md bg-teal-50 shadow-xl flex flex-col m-4 hover:scale-105'>
       <h3 className='text-xs px-2 rounded-md mt-2 text-white bg-green-500 self-end pr-2'>
         ONLINE
       </h3>

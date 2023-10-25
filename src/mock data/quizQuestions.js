@@ -1,6 +1,6 @@
 export const quizzes = [
   {
-    title: "Quiz 1",
+    title: "Google Drive",
     id: 0,
     questions: [
       {
@@ -27,7 +27,7 @@ export const quizzes = [
     ],
   },
   {
-    title: "Quiz 2",
+    title: "Cyber Security",
     id: 1,
     questions: [
       {
@@ -54,7 +54,7 @@ export const quizzes = [
     ],
   },
   {
-    title: "Quiz 3",
+    title: "IT Poilicy",
     id: 2,
     questions: [
       {
