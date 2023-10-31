@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { MdPlayCircleOutline } from "react-icons/md";
 
 const PdfCard = ({ pdfFile, openPdf }) => {
-  // Extract just the base name without "pdf/" and ".pdf"
-  const fileName = pdfFile.replace(/^pdf\//, "").replace(/\.pdf$/, "");
+  const fileName = pdfFile
+    .replace(/^pdf\//, "")
+    .replace(/\.pdf$/, "")
+    .replace(/\s*\(\d+\)$/, "");
 
   return (
     <div

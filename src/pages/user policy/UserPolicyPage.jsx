@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PdfCard from "../../components/PdfCard";
 
 const UserPolicyPage = () => {
@@ -11,7 +11,6 @@ const UserPolicyPage = () => {
     "pdf/Data Retention Policy (1).pdf",
     "pdf/Data Security Clause (1).pdf",
     "pdf/Identity & Access Management (1).pdf",
-    "pdf/Identity & Access Management (2).pdf",
     "pdf/Incident Management Policy (1).pdf",
     "pdf/Information Security Policy (1).pdf",
     "pdf/IT Asset Disposal Policy (1).pdf",
@@ -24,6 +23,16 @@ const UserPolicyPage = () => {
   const closePdf = () => {
     setSelectedPdf(null);
   };
+
+  useEffect(() => {
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+    window.addEventListener("contextmenu", disableRightClick);
+    return () => {
+      window.removeEventListener("contextmenu", disableRightClick);
+    };
+  }, []);
 
   return (
     <div>
