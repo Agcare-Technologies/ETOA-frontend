@@ -15,7 +15,7 @@ const SideBar = () => {
         <NavLink to='/training' label='Training' icon={<BsTrainFront />} />
         <NavLink to='/policy' label='User Policy' icon={<MdOutlinePolicy />} />
         <NavLink to='/quiz' label='Quiz' icon={<MdOutlineQuiz />} />
-        <NavLink to='/profile' label='Progress' icon={<GiProgression />} />
+        <NavLink to='/progress' label='Progress' icon={<GiProgression />} />
       </div>
     </div>
   );

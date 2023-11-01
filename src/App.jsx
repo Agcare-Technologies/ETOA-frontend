@@ -8,6 +8,7 @@ import QuizPage from "./pages/quiz page/QuizPage";
 import TrainingPage from "./pages/training page/TrainingPage";
 import MainLayout from "./components/MainLayout";
 import ProgressPage from "./pages/progress page/ProgressPage";
+import ProfilePage from "./pages/profile page/ProfilePage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,7 +23,8 @@ function App() {
           <Route path='training' element={<TrainingPage />} />
           <Route path='policy' element={<UserPolicyPage />} />
           <Route path='quiz' element={<QuizPage />} />
-          <Route path='profile' element={<ProgressPage />} />
+          <Route path='progress' element={<ProgressPage />} />
+          <Route path='profile' element={<ProfilePage />} />
         </Route>
       </Routes>
     </Router>

@@ -1,4 +1,5 @@
 import React from "react";
+import DropDown from "./DropDown";
 
 const NavBar = () => {
   return (
@@ -6,14 +7,8 @@ const NavBar = () => {
       <div>
         <img src='/assets/safex.png' className='h-20 mx-4' alt='' />
       </div>
-      <div>
-        <img
-          width='30'
-          height='30'
-          src='https://img.icons8.com/ios-filled/50/FFFFFF/user-male-circle.png'
-          alt='user-male-circle'
-          className='mx-4'
-        />
+      <div className='mx-4'>
+        <DropDown /> {/* Use the DropdownMenu component here */}
       </div>
     </div>
   );
