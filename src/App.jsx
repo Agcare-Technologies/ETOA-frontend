@@ -16,8 +16,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path='login' element={<LoginPage />} />
-        <Route path='/' element={<MainLayout />}>
+        <Route path='/' element={<LoginPage />} />
+        <Route path='todo' element={<MainLayout />}>
           <Route path='home' element={<HomePage />} />
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='training' element={<TrainingPage />} />
