@@ -1,10 +1,18 @@
 import React from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
 function DropDown() {
   const navigate = useNavigate();
+  const handleLogout = () => {
+    console.log("clicked");
+
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    console.log("values removed redirecting to login page");
+    navigate("login");
+  };
   return (
     <div className='relative inline-block text-left'>
       <Menu>
@@ -32,39 +40,6 @@ function DropDown() {
                 <Menu.Item>
                   {({ active }) => (
                     <button
-                      className={`${
-                        active ? "bg-green-500 text-white" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      Edit
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={`${
-                        active ? "bg-green-500 text-white" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      Duplicate
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
-                      className={`${
-                        active ? "bg-green-500 text-white" : "text-gray-900"
-                      } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
-                      Archive
-                    </button>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <button
                       onClick={() => navigate("/profile")}
                       className={`${
                         active ? "bg-green-500 text-white" : "text-gray-900"
@@ -77,6 +52,7 @@ function DropDown() {
                 <Menu.Item>
                   {({ active }) => (
                     <button
+                      onClick={handleLogout}
                       className={`${
                         active ? "bg-green-500 text-white" : "text-gray-900"
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}

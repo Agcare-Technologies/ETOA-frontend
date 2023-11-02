@@ -11,14 +11,12 @@ import ProgressPage from "./pages/progress page/ProgressPage";
 import ProfilePage from "./pages/profile page/ProfilePage";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<LoginPage />} />
-        <Route path='todo' element={<MainLayout />}>
-          <Route path='home' element={<HomePage />} />
+        <Route path='login' index element={<LoginPage />} />
+        <Route path='/' element={<MainLayout />}>
+          <Route path='home' index element={<HomePage />} />
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='training' element={<TrainingPage />} />
           <Route path='policy' element={<UserPolicyPage />} />
