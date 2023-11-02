@@ -15,7 +15,7 @@ const NavLink = ({ to, label, icon }) => {
 
   return (
     <div
-      className={`flex items-center rounded-sm px-4 py-2 space-x-2 w-48 ${linkStyle.backgroundColor}`}
+      className={`flex items-center hover:bg-green-500 rounded-sm px-4 py-2 space-x-2 w-48 ${linkStyle.backgroundColor}`}
     >
       <span className={isActive(to) ? "text-white" : "text-black"}>{icon}</span>
       <Link
