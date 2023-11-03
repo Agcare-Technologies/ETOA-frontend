@@ -18,7 +18,7 @@
     "react-google-button": "^0.7.2",
     "react-icons": "^4.11.0",
     "react-router": "^6.17.0",
-    "react-router-dom": "^6.17.0",
+    "react-router-dom": "^6.18.0",
     "react-youtube": "^10.1.0"
   },
   "devDependencies": {

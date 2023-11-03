@@ -1,16 +1,13 @@
 import React from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function DropDown() {
+  const { logout } = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
-    console.log("clicked");
-
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-
-    console.log("values removed redirecting to login page");
+    logout();
     navigate("login");
   };
   return (
