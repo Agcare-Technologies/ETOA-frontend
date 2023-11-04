@@ -1,14 +1,20 @@
-// LoginPage.js
-import React from "react";
+import React, { useEffect } from "react";
 import GoogleButton from "react-google-button";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext"; // Adjust the import path
+import { useAuth } from "../../context/AuthContext";
 import { auth, googleAuthProvider } from "../../firebase";
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const { user, setUser } = useAuth(); // Add setUser to update the user state
+  const { user, setUser } = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      // If the user is already authenticated, redirect to the home page
+      navigate("/home");
+    }
+  }, [user, navigate]);
 
   const handleSignInWithGoogle = async () => {
     try {
@@ -16,24 +22,34 @@ const LoginPage = () => {
       console.log(result);
 
       if (result.user) {
-        // Update the user state in the context
-        setUser(result.user);
-        console.log("values saved in context");
-        navigate("/home");
+        const userEmail = result.user.email;
+        const approvedDomains = [
+          "agcaretech.com",
+          "safexchemicals.com",
+          "smithnsmith.net",
+        ];
+        const userDomain = userEmail.split("@")[1];
+
+        if (approvedDomains.includes(userDomain)) {
+          // Update the user state in the context
+          setUser(result.user);
+          navigate("/home");
+        } else {
+          // Sign out the user and display a message
+          navigate("/");
+          await signOut(auth);
+          navigate("/login");
+          alert("You don't have access to this app.");
+        }
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  if (user) {
-    // If the user is already authenticated, redirect to the home page
-    navigate("/home");
-  }
-
   return (
     <div className='text-4xl font-semibold'>
-      <div className='flex justify-center rounded-md shadow-sm mt-10 py-10 '>
+      <div className='flex justify-center rounded-md shadow-sm mt-10 py-10'>
         <GoogleButton onClick={handleSignInWithGoogle} />
       </div>
     </div>
