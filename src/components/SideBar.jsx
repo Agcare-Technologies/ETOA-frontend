@@ -6,6 +6,7 @@ import { BsTrainFront } from 'react-icons/bs';
 import { MdOutlinePolicy, MdOutlineQuiz } from 'react-icons/md';
 import { GiProgression } from 'react-icons/gi';
 import { IoIdCardOutline } from 'react-icons/io5';
+import { TfiGallery } from 'react-icons/tfi';
 const SideBar = () => {
 	return (
 		<div className='w-48 h-screen bg-gray-100'>
@@ -22,6 +23,7 @@ const SideBar = () => {
 					icon={<IoIdCardOutline />}
 				/>
 				<NavLink to='/test' label='Support Ticket' icon={<IoIdCardOutline />} />
+				<NavLink to='/gallery' label='Image Gallery' icon={<TfiGallery />} />
 			</div>
 		</div>
 	);

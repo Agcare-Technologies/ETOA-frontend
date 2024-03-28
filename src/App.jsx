@@ -9,6 +9,7 @@ import MainLayout from './components/MainLayout';
 import ProgressPage from './pages/progress page/ProgressPage';
 import ProfilePage from './pages/profile page/ProfilePage';
 import GenerateIDCardPage from './pages/generate ID Card/GenerateIDCardPage';
+import ImageGallery from './pages/image gallery/ImageGallery';
 
 function App() {
 	return (
@@ -23,6 +24,7 @@ function App() {
 				<Route path='progress' element={<ProgressPage />} />
 				<Route path='profile' element={<ProfilePage />} />
 				<Route path='idCard' element={<GenerateIDCardPage />} />
+				<Route path='gallery' element={<ImageGallery />} />
 			</Route>
 		</Routes>
 	);
