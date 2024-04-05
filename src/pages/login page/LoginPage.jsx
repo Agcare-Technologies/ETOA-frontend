@@ -33,6 +33,7 @@ const LoginPage = () => {
 				if (approvedDomains.includes(userDomain)) {
 					// Update the user state in the context
 					setUser(result.user);
+					console.log(result);
 					navigate('/home');
 				} else {
 					// Sign out the user and display a message
